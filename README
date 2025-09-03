@@ -1,0 +1,25 @@
+# Daily Report Generator
+
+Brief README for version 1.0:
+
+## Daily Report Generator v1.0
+
+A simple web application for creating daily reports in JSON format through an intuitive form.
+
+### Key Features:
+- Input data about various aspects of your day (work, sports, reading, etc.)
+- Automatic saving of the current date
+- JSON report generation
+- Simple and clean interface
+
+### How to Use:
+1. Fill in the form fields
+2. Click the "Save" button
+3. Copy the generated JSON report
+
+### Technologies:
+- React with TypeScript
+- Local data storage in component state
+- Responsive CSS
+
+The application is ready to use after running the standard `npm start` command.

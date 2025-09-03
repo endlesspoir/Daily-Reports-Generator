@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import "../styles/style.css";
+import "./styles/style.css";
 
 
 interface ReportData {
+  date: string ;
   work: string;
   sport: string;
   book: string;
@@ -14,7 +15,9 @@ interface ReportData {
 }
 
 export default function App() {
-  const [formData, setFormData] = useState<ReportData>({
+  const [formData, setFormData] = useState<ReportData>(
+    { 
+    date : new Date().toISOString().split("T")[0],
     work: "",
     sport: "",
     book: "",
