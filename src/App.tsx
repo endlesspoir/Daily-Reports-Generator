@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./styles/style.css";
 
-
 interface ReportData {
   date: string ;
   work: string;
@@ -15,8 +14,7 @@ interface ReportData {
 }
 
 export default function App() {
-  const [formData, setFormData] = useState<ReportData>(
-    { 
+  const [formData, setFormData] = useState<ReportData>({
     date : new Date().toISOString().split("T")[0],
     work: "",
     sport: "",
@@ -46,14 +44,18 @@ export default function App() {
 
       <main className="main">
         <form className="form" onSubmit={(e) => e.preventDefault()}>
-          <label>Working hours<input type="text" name="work" value={formData.work} onChange={handleChange} /></label>
-          <label>Time for sport<input type="text" name="sport" value={formData.sport} onChange={handleChange} /></label>
-          <label>Pages read<input type="text" name="book" value={formData.book} onChange={handleChange} /></label>
-          <label>Minutes listened<input type="text" name="audiobook" value={formData.audiobook} onChange={handleChange} /></label>
-          <label>Steps<input type="text" name="steps" value={formData.steps} onChange={handleChange} /></label>
-          <label>Fell asleep<input type="text" name="sleepstart" value={formData.sleepstart} onChange={handleChange} /></label>
-          <label>Wake up<input type="text" name="sleepend" value={formData.sleepend} onChange={handleChange} /></label>
-          <label>Thoughts<input type="text" name="thoughts" value={formData.thoughts} onChange={handleChange} /></label>
+          {["work", "sport", "book", "audiobook", "steps", "sleepstart", "sleepend", "thoughts"].map((field) => (
+            <div className="input-group" key={field}>
+              <input
+                type="text"
+                name={field}
+                value={formData[field as keyof ReportData]}
+                onChange={handleChange}
+                required
+              />
+              <label>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
+            </div>
+          ))}
           <button type="button" onClick={handleSave}>Save</button>
         </form>
 
