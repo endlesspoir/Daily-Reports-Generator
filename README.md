@@ -23,3 +23,5 @@ A simple web application for creating daily reports in JSON format through an in
 - Responsive CSS
 
 The application is ready to use after running the standard `npm start` command.
+
+Soon
